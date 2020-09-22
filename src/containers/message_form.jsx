@@ -4,6 +4,26 @@ import { bindActionCreators } from "redux";
 
 import { createMessage } from "../actions/actions";
 
+const form = {
+  margin: "16px 0",
+  position: "absolute",
+  width: "96%",
+  bottom: "0px",
+};
+
+const input = {
+  width: "80%",
+  height: "40px",
+};
+
+const button = {
+  width: "20%",
+  height: "40px",
+  backgroundColor: "lightblue",
+  borderStyle: "none",
+  position: "absolute",
+};
+
 class MessageFrom extends Component {
   constructor(props) {
     super(props);
@@ -29,14 +49,17 @@ class MessageFrom extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      <div style={form}>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+            style={input}
+          />
+          <input type="submit" value="Send" style={button} />
+        </form>
+      </div>
     );
   }
 }

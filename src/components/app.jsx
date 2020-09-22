@@ -4,7 +4,7 @@ import MessageList from "../containers/message_list";
 
 const App = () => {
   return (
-    <div className="app">
+    <div style={{ margin: "0", height: "100vh" }}>
       <MessageList />
     </div>
   );

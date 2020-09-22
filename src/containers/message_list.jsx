@@ -7,6 +7,12 @@ import MessageForm from "./message_form";
 
 import { fetchMessages } from "../actions/actions";
 
+const listStyle = {
+  padding: "16px 16px 0px 16px",
+  height: "100%",
+  position: "relative",
+};
+
 class MessageList extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +47,7 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="message-list">
+      <div style={listStyle}>
         {this.renderList()}
         <MessageForm />
       </div>
