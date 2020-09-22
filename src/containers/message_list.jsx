@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import Message from "../components/message";
+import MessageForm from "./message_form";
 
-import fetchMessages from "../actions/index";
+import { fetchMessages } from "../actions/actions";
 
 class MessageList extends Component {
   constructor(props) {
@@ -28,7 +29,12 @@ class MessageList extends Component {
   };
 
   render() {
-    return <div className="message-list">{this.renderList()}</div>;
+    return (
+      <div className="message-list">
+        {this.renderList()}
+        <MessageForm />
+      </div>
+    );
   }
 }
 
