@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 
 import { createMessage } from "../actions/actions";
 
+// CSS
 const form = {
   margin: "16px 0",
   position: "absolute",
