@@ -12,9 +12,20 @@ class MessageList extends Component {
     super(props);
     this.state = {};
   }
+
   componentWillMount() {
-    this.props.fetchMessages("general");
+    this.getMessages();
   }
+
+  componentDidMount() {
+    this.interval = setInterval(this.getMessages, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  getMessages = () => this.props.fetchMessages("general"); // TODO: hardcoded GENERAL
 
   renderList = () => {
     // eslint-disable-next-line arrow-parens
