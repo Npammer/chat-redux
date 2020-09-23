@@ -8,8 +8,8 @@ import MessageForm from "./message_form";
 import { fetchMessages } from "../actions/actions";
 
 const listStyle = {
-  padding: "16px 16px 0px 16px",
-  height: "100%",
+  padding: "16px 16px 90px 16px",
+  height: "auto",
   position: "relative",
 };
 

@@ -6,10 +6,12 @@ import { createMessage } from "../actions/actions";
 
 // CSS
 const form = {
-  margin: "16px 0",
-  position: "absolute",
+  padding: "16px 0",
+  position: "fixed",
   width: "96%",
   bottom: "0px",
+  backgroundColor: "white",
+  borderTop: "1px solid rgba(0,0,0,0.10)",
 };
 
 const input = {
