@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -18,11 +19,14 @@ const messageList = {
 
 class MessageList extends Component {
   componentWillMount() {
-    this.getMessages();
+    this.getMessages(this.props.selectedChannel);
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.getMessages, 5000); // TODO: Change inteval
+    this.interval = setInterval(
+      () => this.getMessages(this.props.selectedChannel),
+      5000
+    ); // TODO: Change inteval
   }
 
   componentDidUpdate() {
@@ -33,7 +37,7 @@ class MessageList extends Component {
     clearInterval(this.interval);
   }
 
-  getMessages = () => this.props.fetchMessages("general"); // TODO: hardcoded GENERAL
+  getMessages = (channel) => this.props.fetchMessages(channel);
 
   renderList = () => {
     // eslint-disable-next-line arrow-parens
@@ -53,8 +57,8 @@ class MessageList extends Component {
         <div
           className="message-list"
           style={messageList}
-          ref={(messageList) => {
-            this.messageList = messageList;
+          ref={(messageListRef) => {
+            this.messageList = messageListRef;
           }}
         >
           {this.renderList()}
@@ -72,6 +76,7 @@ function mapDispatchToProps(dispatch) {
 function mapReduxStateToProps(reduxState) {
   return {
     messages: reduxState.messages,
+    selectedChannel: reduxState.selectedChannel,
   };
 }
 
