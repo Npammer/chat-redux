@@ -36,18 +36,24 @@ class MessageFrom extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.messageInput.focus();
+  }
+
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.createMessage(
-      this.props.selectedChannel,
-      this.props.currentUser,
-      this.state.value
-    );
-    this.setState({ value: "" });
+    if (this.state.value.length > 0) {
+      this.props.createMessage(
+        this.props.selectedChannel,
+        this.props.currentUser,
+        this.state.value
+      );
+      this.setState({ value: "" });
+    }
   }
 
   render() {
@@ -59,6 +65,9 @@ class MessageFrom extends Component {
             value={this.state.value}
             onChange={this.handleChange}
             style={input}
+            ref={(element) => {
+              this.messageInput = element;
+            }}
           />
           <input type="submit" value="Send" style={button} />
         </form>

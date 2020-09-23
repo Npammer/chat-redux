@@ -9,22 +9,24 @@ import { fetchMessages } from "../actions/actions";
 
 const listStyle = {
   padding: "16px 16px 90px 16px",
-  height: "auto",
-  position: "relative",
+};
+
+const messageList = {
+  height: "593px",
+  overflowY: "auto",
 };
 
 class MessageList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   componentWillMount() {
     this.getMessages();
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.getMessages, 1000);
+    this.interval = setInterval(this.getMessages, 5000); // TODO: Change inteval
+  }
+
+  componentDidUpdate() {
+    this.messageList.scrollTop = this.messageList.scrollHeight;
   }
 
   componentWillUnmount() {
@@ -48,7 +50,15 @@ class MessageList extends Component {
   render() {
     return (
       <div style={listStyle}>
-        {this.renderList()}
+        <div
+          className="message-list"
+          style={messageList}
+          ref={(messageList) => {
+            this.messageList = messageList;
+          }}
+        >
+          {this.renderList()}
+        </div>
         <MessageForm />
       </div>
     );
