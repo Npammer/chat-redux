@@ -8,15 +8,6 @@ import MessageForm from "./message_form";
 
 import { fetchMessages } from "../actions/actions";
 
-const listStyle = {
-  padding: "16px 16px 90px 16px",
-};
-
-const messageList = {
-  height: "593px",
-  overflowY: "auto",
-};
-
 class MessageList extends Component {
   componentWillMount() {
     this.getMessages(this.props.selectedChannel);
@@ -25,8 +16,8 @@ class MessageList extends Component {
   componentDidMount() {
     this.interval = setInterval(
       () => this.getMessages(this.props.selectedChannel),
-      5000
-    ); // TODO: Change inteval
+      2000
+    );
   }
 
   componentDidUpdate() {
@@ -53,10 +44,9 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div style={listStyle}>
+      <div className="list-style">
         <div
           className="message-list"
-          style={messageList}
           ref={(messageListRef) => {
             this.messageList = messageListRef;
           }}

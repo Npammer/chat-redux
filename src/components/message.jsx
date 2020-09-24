@@ -1,32 +1,18 @@
 import React, { Component } from "react";
+import { emojify } from "react-emojione";
 
-// CSS
-const message = {
-  padding: "8px 8px 0px 8px",
-};
-
-const firstLine = {
-  display: "flex",
-};
-
-const created = {
-  display: "flex",
-  alignItems: "center",
-  color: "gray",
-  fontSize: "8px",
-  margin: "0px",
-  marginLeft: "6px",
-};
-
-const contentStyle = {
-  marginTop: "5px",
-  marginBottom: "5px",
-  padding: "8px",
-  backgroundColor: "lightblue",
-  width: "auto",
-  borderRadius: "14px",
-  display: "table",
-};
+function stringToColour(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  let colour = "#";
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    colour += ("00" + value.toString(16)).substr(-2);
+  }
+  return colour;
+}
 
 // React
 class Message extends Component {
@@ -37,12 +23,12 @@ class Message extends Component {
   render() {
     const { author, content, createdAt } = this.props;
     return (
-      <div style={message}>
-        <div style={firstLine}>
-          <h5>{author}</h5>
-          <h5 style={created}>{createdAt}</h5>
+      <div className="message">
+        <div className="flex">
+          <h5 style={{ color: stringToColour(author) }}>{author}</h5>
+          <h5 className="created">{createdAt}</h5>
         </div>
-        <h5 style={contentStyle}>{content}</h5>
+        <h5 className="content-style">{emojify(content)}</h5>
       </div>
     );
   }

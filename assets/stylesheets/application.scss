@@ -1,7 +1,135 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", sans-serif;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 .app {
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+// Row 1
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 10%;
+  height: 100%;
+  background: #2b2d42;
+  box-sizing: border-box;
+}
+
+.messaging-logo {
+  width: 100%;
+  height: 14%;
+}
+
+// channel-list
+
+.channels-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 20%;
+  height: 100%;
+  background: #f4f4f4;
+  box-sizing: border-box;
+}
+
+.channel-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 6px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.li {
+  list-style-type: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.8rem;
+}
+
+.li:hover {
+  transform: scale(1.1);
+}
+
+// message-list
+
+.list-style {
+  padding: 16px 16px 90px 16px;
+}
+
+.message-list {
+  height: 593px;
+  overflow-y: auto;
+}
+
+// message
+
+.message {
+  padding: 8px 8px 0px 8px;
+}
+
+.created {
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-size: 8px;
+  margin: 0px;
+  margin-left: 6px;
+}
+
+.content-style {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 8px;
+  background-color: lightblue;
+  width: auto;
+  border-radius: 14px;
+  display: table;
+}
+
+// message-form
+
+.form {
+  padding: 16px 0;
+  position: fixed;
+  width: 96%;
+  bottom: 0px;
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  width: 60%;
+  height: 40px;
+}
+
+.message-form-button {
+  width: 10%;
+  height: 40px;
+  background-color: lightblue;
+  border-style: none;
+  position: absolute;
 }

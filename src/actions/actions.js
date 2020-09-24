@@ -34,4 +34,11 @@ function createMessage(channel, author, content) {
   };
 }
 
-export { fetchMessages, createMessage };
+function selectChannel(channel) {
+  return {
+    type: "SET_CHANNEL",
+    payload: channel,
+  };
+}
+
+export { fetchMessages, createMessage, selectChannel };
