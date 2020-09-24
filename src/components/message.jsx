@@ -24,7 +24,7 @@ class Message extends Component {
     const { author, content, createdAt } = this.props;
     return (
       <div className="message">
-        <div className="flex">
+        <div className="username-time">
           <h5 style={{ color: stringToColour(author) }}>{author}</h5>
           <h5 className="created">{createdAt}</h5>
         </div>
