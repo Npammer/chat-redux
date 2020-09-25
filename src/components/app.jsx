@@ -9,7 +9,7 @@ const App = () => {
       <div className="logo-container">
         <img
           className="messaging-logo"
-          src="assets/images/logo.png"
+          src="https://iili.io/27snHX.png"
           alt="logo"
         />
       </div>
